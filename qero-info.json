@@ -1,7 +1,8 @@
 {
-    "version": "1.0",
+    "version": "1.2",
     "entry_point": "test.php",
     "requires": [
-        "KRypt0nn/TreeStructure", "KRytp0nn/Dataset-Structures"
+        "KRypt0nn/TreeStructure",
+        "KRypt0nn/Dataset-Structures"
     ]
 }
