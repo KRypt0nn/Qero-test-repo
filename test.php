@@ -1,21 +1,29 @@
 <?php
 
-class Nani
+MathLib\includeModule ('Math/AdditionalMath');
+
+use MathLib\AdditionalMath;
+
+class Encrypter
 {
-    public function save ()
+    public static function encode ($text, $key)
     {
-        $db = new Dataset ('tmp.db');
-        $db->set (1, 2);
-        $db->save ();
-        $db->close ();
+        $enc = array ();
+
+        foreach (str_split ($text) as $char)
+            $enc[] = MathLib\AdditionalMath\pow (ord ($char), $key);
+
+        return implode (' ', $enc);
     }
 
-    public function savent ()
+    public static function decode ($text, $key)
     {
-        $db = new Dataset ('tmp.db');
-        $db->remove (1);
-        $db->save ();
-        $db->close ();
+        $dec = '';
+
+        foreach (explode (' ', $text) as $char)
+            $dec .= MathLib\AdditionalMath\root ($char, $key);
+
+        return $dec;
     }
 }
 
