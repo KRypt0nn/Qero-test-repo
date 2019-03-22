@@ -18,6 +18,8 @@ while (true)
     if (array_search ($status, array ('y', 'n')) === false)
         fwrite (STDOUT, '   You pressed unknown character. Please, retry:
     > ');
+
+    else break;
 }
 
 fclose ($input);
