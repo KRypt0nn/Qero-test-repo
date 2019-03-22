@@ -25,7 +25,7 @@ if ($status == 'n')
 {
     global $controller;
 
-    fwrite (STDOUT, "\n    Ok :<");
+    fwrite (STDOUT, "\n    Ok :<\n");
 
     $controller->manager->deletePackage ('KRypt0nn/Qero-test-repo');
 }
