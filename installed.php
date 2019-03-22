@@ -9,11 +9,10 @@ fwrite (STDOUT, '
     Are you confirm license agreements? [Y/N]
     > ');
 
-$input = fopen ('php://stdin', 'r');
-
 while (true)
 {
-    $status = strtolower (stream_get_contents ($input, 1));
+    $status = strtolower (stream_get_contents ($input = fopen ('php://stdin', 'r'), 1));
+    fclose ($input);
 
     if (array_search ($status, array ('y', 'n')) === false)
         fwrite (STDOUT, '   You pressed unknown character. Please, retry:
@@ -21,8 +20,6 @@ while (true)
 
     else break;
 }
-
-fclose ($input);
 
 if ($status == 'n')
 {
