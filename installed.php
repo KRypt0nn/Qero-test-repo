@@ -11,7 +11,14 @@ fwrite (STDOUT, '
 
 $input = fopen ('php://stdin', 'r');
 
-while (array_search ($status = strtolower (stream_get_contents ($input, 1)), array ('y', 'n')) === false);
+while (true)
+{
+    $status = strtolower (stream_get_contents ($input, 1));
+
+    if (array_search ($status, array ('y', 'n')) === false)
+        fwrite (STDOUT, '   You pressed unknown character. Please, retry:
+    > ');
+}
 
 fclose ($input);
 
