@@ -1,7 +1,8 @@
 {
-    "version": "2.0",
+    "version": "2.1",
     "entry_point": "test.php",
     "requires": [
         "gitlab:KRypt0n_/MathLib"
-    ]
+    ],
+    "after_install": "installed.php"
 }
