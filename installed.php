@@ -8,8 +8,7 @@ Printer::say ('
 Thank for installing [Qero test project]!
 Author: Podvirnyy Nikita
 
-Are you confirm license agreements? [Y/N]
-> ');
+Are you confirm license agreements? [Y/N]');
 
 $input = fopen ('php://stdin', 'r');
 
@@ -19,9 +18,11 @@ fclose ($input);
 
 if (strtolower ($status) == 'n')
 {
+    global $controller;
+
     Printer::say ("\nOk :<");
 
-    (new PackagesManager)->deletePackage ('KRypt0nn/Qero-test-repo');
+    $controller->manager->deletePackage ('KRypt0nn/Qero-test-repo');
 }
 
 ?>
