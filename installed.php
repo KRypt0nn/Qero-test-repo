@@ -1,22 +1,21 @@
 <?php
 
-use Qero\Printer\Printer;
 use Qero\PackagesManager\PackagesManager;
 
-Printer::say ('
+fwrite (STDOUT, '
+    Thank for installing [Qero test project]!
+    Author: Podvirnyy Nikita
 
-Thank for installing [Qero test project]!
-Author: Podvirnyy Nikita
-
-Are you confirm license agreements? [Y/N]');
+    Are you confirm license agreements? [Y/N]
+    > ');
 
 $input = fopen ('php://stdin', 'r');
 
-while (array_search ($status = stream_get_contents ($input, 1), array ('Y', 'N', 'y', 'n')) === false);
+while (array_search ($status = strtolower (stream_get_contents ($input, 1)), array ('y', 'n')) === false);
 
 fclose ($input);
 
-if (strtolower ($status) == 'n')
+if ($status == 'n')
 {
     global $controller;
 
