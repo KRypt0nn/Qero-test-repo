@@ -2,12 +2,13 @@
 
 use Qero\PackagesManager\PackagesManager;
 
-fwrite (STDOUT, '
-    Thank for installing [Qero test project]!
-    Author: Podvirnyy Nikita
-
-    Are you confirm license agreements? [Y/N]
-    > ');
+fwrite (STDOUT, '    '. implode (PHP_EOL .'    ', [
+    'Thank for installing [Qero test project]!',
+    'Author: Podvirnyy Nikita',
+    '',
+    'Are you confirm license agreements? [Y/N]',
+    '> '
+]));
 
 while (true)
 {
@@ -21,13 +22,13 @@ while (true)
     else break;
 }
 
+fwrite (STDOUT, PHP_EOL);
+
 if ($status == 'n')
 {
     global $controller;
 
     fwrite (STDOUT, "\n    Ok :<\n");
 
-    $controller->manager->deletePackage ('KRypt0nn/Qero-test-repo');
+    $controller->manager->removePackage ('KRypt0nn/Qero-test-repo');
 }
-
-?>

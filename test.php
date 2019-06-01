@@ -26,5 +26,3 @@ class Encrypter
         return $dec;
     }
 }
-
-?>
