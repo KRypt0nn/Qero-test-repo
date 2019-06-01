@@ -2,13 +2,13 @@
 
 use Qero\PackagesManager\PackagesManager;
 
-fwrite (STDOUT, '    '. implode (PHP_EOL .'    ', [
+fwrite (STDOUT, '    '. implode (PHP_EOL .'    ', array (
     'Thank for installing [Qero test project]!',
     'Author: Podvirnyy Nikita',
     '',
     'Are you confirm license agreements? [Y/N]',
     '> '
-]));
+)));
 
 while (true)
 {
@@ -16,13 +16,11 @@ while (true)
     fclose ($input);
 
     if (array_search ($status, array ('y', 'n')) === false)
-        fwrite (STDOUT, '   You pressed unknown character. Please, retry:
+        fwrite (STDOUT, '   You pressed unknown symbol. Please, retry:
     > ');
 
     else break;
 }
-
-fwrite (STDOUT, PHP_EOL);
 
 if ($status == 'n')
 {
@@ -32,3 +30,5 @@ if ($status == 'n')
 
     $controller->manager->removePackage ('KRypt0nn/Qero-test-repo');
 }
+
+fwrite (STDOUT, PHP_EOL);
