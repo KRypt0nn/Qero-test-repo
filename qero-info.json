@@ -2,7 +2,9 @@
     "version": "2.2",
     "entry_point": "test.php",
     "requires": [
-        "gitlab:KRypt0n_/MathLib"
+        "KRypt0nn/ProgressBar",
+        "KRypt0nn/DStructure",
+        "winforms-php/VoidFramework@3.2.0"
     ],
     "after_install": "installed.php"
 }
